@@ -1,0 +1,6 @@
+반응형 웹에서 필요한 태그
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+절대 경로 : C\ ~
+상대결로 : .현재 폴더
+..부모 폴더
+/자식 폴더
