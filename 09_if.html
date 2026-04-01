@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //나이에 따른 버스 요금 계산
+      /*조건 => 가장 효유적인 if else if..... 구문으로 설계
+      6세 이하: 무료
+      12세 미만: 450
+      18세 미만: 700
+      18세 이상: 1000
+      70세 이상: 무료
+      */
+
+      let age = prompt("나이를 입력하세요");
+      if (age) {  //age가 존재하면
+        if (age <= 6 || age >= 70) {
+          console.log("무료입니다.");
+        } else if (age < 12) {
+          console.log("450원입니다.");
+        } else if (age < 18) {
+          console.log("700원입니다.");
+        } else {
+          console.log("1000원입니다.");
+        }
+      }
+    </script>
+  </body>
+</html>

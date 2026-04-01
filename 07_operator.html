@@ -40,7 +40,92 @@
       console.log((x /= y)); //3
       console.log((x %= y)); //3
 
-      //
+      //3. 비교 연산자 : 데이터의 값을 비교
+      //> < >= <= == === != !==
+      x = 3;
+      console.log(typeof x); //number
+      y = "3";
+      console.log(typeof y); //string
+      console.log(x == y); //true, 값 비교 => 유연성 => 장점, 단점
+      console.log(x === y); //false, 타입비교
+
+      console.log(x != y); //false
+      console.log(x !== y); //true
+
+      //4. 산술 연산자 ++(증가) --(감소) +(숫자화) -(단항부정: 부호바꾸기)
+      x = 5;
+      y = ++x;
+      console.log(x); //6
+      console.log(y); //6
+
+      //시험문제에 나오기 좋은 문제!!
+      x = 5;
+      y = x++;
+      console.log(x); //6
+      console.log(y); //5
+
+      y = --x; //x가 6인상황!
+      console.log(x); //5
+      console.log(y); //5
+      y = x--;
+      console.log(x); //4
+      console.log(y); //5
+
+      x = -3;
+      console.log(x); //-3
+      console.log(-x); //3
+
+      x = "7";
+      y = +x;
+      console.log(typeof x); //string
+      console.log(typeof y); //number
+      console.log(x);
+      console.log(y);
+      console.log(x === y);
+
+      //prompt로 두 수를 입력받아 합을 구하는 코드 작성
+      // let input1 = +prompt("첫 번째 숫작 입력");
+      // let intput2 = +prompt("두 번째 숫자 입력");
+      // console.log(input1 + intput2);
+
+      //5. 논리연산자: 여러조건이 함께 있을 때 참인지 거짓인지 판단... 종류: &&(and: 하나라도 거짓이면 거짓이다.) ||(or: 하나라로 참이면 참이다.)
+      let o = true && false; //false
+      console.log(o);
+      o = 3 > 2 && 4 > 7; //flase
+      console.log(o);
+      o = 3 > 2 && 8 > 7; //true
+      console.log(o);
+      o = true || false; //true
+      console.log(o);
+      o = 3 > 2 || 4 > 7; //true
+      console.log(o);
+      o = 3 > 4 || 4 < 2 || 2 > 1; // true.....js에서 가능
+      console.log(o);
+
+      //6. 문자열 연산자 : +(concate)
+      let firstName = "John";
+      let lastName = "Bacon";
+      let fullName = firstName + lastName;
+      console.log(fullName);
+
+      //7. 삼항 연산자 : 조건 ? 참 : 거짓; 중첩이 가능하다.
+      let age = 16;
+      let isAdult = age >= 20 ? "성인" : "미성년자";
+
+      //활용 : 90이상이면 "A", 80이상이면 "B", 70이상이면 "C", 60이상이면 "D", 아니면 "E"라고 출력하는 코드 => 반드시 삼항연산자, prompt입력
+      let score1 = prompt("점수 입력");
+      let score2 =
+        score1 >= 90
+          ? "A"
+          : score1 >= 80
+            ? "B"
+            : score1 >= 70
+              ? "C"
+              : score1 >= 60
+                ? "D"
+                : "E";
+      console.log(score2);
+      
     </script>
   </body>
 </html>
