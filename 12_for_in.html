@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let brands = [
+        "애플",
+        "구글",
+        "마이크로스프트",
+        "삼성",
+        "아마존",
+        "테슬라",
+      ];
+
+      //for~in : 객체에서 많이 사용, 배열에서 사용할 경우 = > 초기화, 조건, 증가식이 없어도 순회
+      for (const i in brands) {
+        //i:인덱스
+        //1. 배열에서 사용
+        console.log(i);
+        console.log(brands[i]);
+      }
+      //2. 객체에서 사용
+      let person = {
+        name: "홍길동",
+        age: 22,
+        tel: "010-1111-2222",
+        city: "Seoul",
+      };
+      for (const key in person) {
+        console.log(key);
+      }
+
+      for (const key in person) {
+        console.log(person[key]);
+      }
+      for (const key in person) {
+        console.log(key, ":", person[key]);
+      }
+      //알고 싶은 키를 입력받고, 키에 대한 값을 출력하는 코드(빈 칸, 없는 키 체크)
+      let keyInput = prompt("알고 싶은 키를 입력하세요.");
+
+      if (keyInput) {
+        for (const key in person) {
+          console.log("찾고 있는 키:", person[key]);
+          if (keyInput !== key) {
+            console.log("알맞은 키를 다시 입력하세요.");
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

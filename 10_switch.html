@@ -9,11 +9,51 @@
     <script>
       /*switch
         - Date() 객체 : 날짜와 시간을 다루는 객체
-        -  
-        */
+        - */
       //Date() 객체를 통해서 now라는 인스턴스 객체 생성
       const now = new Date();
-      console.log(now);
+      // console.log(now);
+      let dayName = now.getDay(); //getDay는 요일을 가져오는데 숫자로 가져온다. 0:일요일
+      // console.log(d);
+      // switch (dayName) {
+      //   case 0: {
+      //     dayName = "일요일";
+      //     break;
+      //   }
+
+      //   case 1: {
+      //     dayName = "월요일";
+      //     break;
+      //   }
+      //   case 2: {
+      //     dayName = "화요일";
+
+      //     break;
+      //   }
+      //   case 3: {
+      //     dayName = "수요일";
+
+      //     break;
+      //   }
+      //   case 4: {
+      //     dayName = "목요일";
+
+      //     break;
+      //   }
+      //   case 5: {
+      //     dayName = "금요일";
+      //     break;
+      //   }
+      //   case 6: {
+      //     dayName = "토요일";
+      //     break;
+      //   }
+      //   default:
+      //     dayName = "no";
+      // }
+      //console.log(dayName);
+      let day = ["일", "월", "화", "수", "목", "금", "토"];
+      console.log(day[new Date().getDay()]);
     </script>
   </body>
 </html>
