@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      //forEach :
+      // - 배열에서 많이 사용
+      // - forEach(함수): 함수가 매개변수로 오는 메서드
+      let brands = ["애플", "구글", "삼성", "아마존", "테슬라"];
+      brands.forEach(function (brand, index) {
+        //index는 무조건 뒤에 넣어야 함
+        //선언함수
+        console.log(brand, index);
+      });
+      //활용 => 총점 계산
+      const myScore = [70, 98, 90, 78, 100];
+      let total = 0;
+      let ave = 0;
+      myScore.forEach(function (Score) {
+        total += Score;
+        ave = total / 5;
+      });
+      console.log("총점: " + total);
+      console.log("평균: " + ave);
+
+      myScore.forEach((Score) => {
+        total += Score;
+        ave = total / 5;
+      });
+      console.log("총점: " + total);
+    </script>
+  </body>
+</html>

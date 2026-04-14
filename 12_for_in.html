@@ -42,21 +42,19 @@
       }
       //알고 싶은 키를 입력받고, 키에 대한 값을 출력하는 코드(빈 칸, 없는 키 체크)
       let keyInput = prompt("알고 싶은 키를 입력하세요.");
-      let found=false;
+      let found = false;
       if (keyInput) {
         for (const key in person) {
           if (keyInput === key) {
-            found=true;
+            found = true;
           }
         }
-        if(found){
-        console.log(person[keyInput]);
-        }
-        else{
+        if (found) {
+          console.log(person[keyInput]);
+        } else {
           console.log("키를 다시 입력하세요.");
         }
-      }
-      else{
+      } else {
         console.log("키를 다시 입력하세요.");
       }
     </script>
