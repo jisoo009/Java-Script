@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //String 내장 함수
+        //1. 속성(property) : length
+
+        let str = "Welcome Seoul";
+        console.log(str.length);    // 0~12
+
+        //2. indexof(대상, 시작위치) : 찾고자 하는 문자열의 시작 인덱스 리턴 (여러개라면 첫 문자열)
+        //찾고자 하는 대상이 없으면 리턴은 -1 
+        console.log(str.indexOf("Seoul"));
+        str = "Welcome Seoul Seoul";
+        console.log(str.indexOf("Seoul", 9)); // 첫 번재 서울보다 큰 위치만 주면 된다.
+        console.log(str.indexOf("Jeju"));   //-1
+
+        //활용 : 전화번호 입력 시 -없이 입력 => - 있다면 에러 메세지 출력
+        let tel = "010-0000-0000";
+        if (tel.indexOf("-") !== -1) {
+            console.log("- 없이 입력하세요");
+        }
+        else {
+            console.log("맞는 형식으로 입력하였습니다.");
+        }
+
+        //3. lastIndexOf() : 뒤에서부터 찾아서 리턴(여러개라면 첫 문자열)
+        console.log(str.lastIndexOf("Seoul"));
+
+        //4. slice() : 문자열을 (시작위치, 마지막 위치-1)만큼 잘라내기
+        str = "Welcome Seoul";
+        console.log(str.slice(8, 13)); //8 9 10 11 12
+        console.log(str.slice(8));
+        //seoul 이 어디에 있는지 모를 때
+        console.log(str.slice(str.indexOf("Seoul")));
+        console.log(str.slice(-5)); //Seoul
+        console.log(str.slice(-5, -2)); // (-5, -4, -3) 실제로 - 많이 사용
+
+        //5. substring() : 문자열을 (시작위치, 마지막 위치-1)만큼 잘라내기
+        // -지원 안한다. 뒤에서부터 자르는 것을 지원 하지 않는다. => - 을 만나면 무조건 0으로 바꾼다.
+        str = "Welcome Seoul";
+        console.log(str.substring(8, 13)); //8 9 10 11 12
+        console.log(str.substring(8));
+        console.log(str.substring(-5));//str.substring(0)
+        console.log(str.substring(-5, -2)); // 
+
+        //6. substr() : 문자열을 (시작위치, 길이)만큼 잘라내기
+        //길이를 명확히 아는 경우 매우 효율적 : 
+        let nowdate = "20260420";
+        let year = nowdate.substr(0, 4);
+        let month = nowdate.substr(4, 2);
+        let date = nowdate.substr(6, 2);
+
+        console.log(year);
+        console.log(month);
+        console.log(date);
+        // slice vs substring vs substr
+        /*  slice : 가장 유연하고 현대적인 메서드, 음수처리 가능
+            substring : slice와 유연하지만 인덱스가 음인 경우 처리가 다르다.
+            substr : 인덱스가 아닌 글자 수를 기준으로 하지만 현재 웹표준으로 권장하지 않는다.
+        */
+
+
+    </script>
+</body>
+
+</html>

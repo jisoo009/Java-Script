@@ -33,6 +33,86 @@
     console.log(taxAmount(13400));
     console.log(getTop5);
 
+    //2. 함수 표현식 : 변수에 함수를 할당, 변수명이 함수명처럼 사용, 선언전에 사용이 불가능
+    const sum2 = function (n1, n2) {
+      return n1 + n2;
+    }; console.log(sum2(5, 6));
+
+    /*3. 화살표 함수
+    - 실무에서 가장 많이 사용
+    - 변수에 함수를 할당, 변수명이 함수명처럼 사용
+    - function 사용 안함, (매개변수) => {}
+    - return 문이 있고 한 줄로 되어있다면 return 과 {} 생략 가능*/
+    const sum3 = (n1, n2) => n1 + n2;
+    console.log(sum3(5, 6));
+
+    const test = (productPrice) => {
+      let tax = 0.5;
+      return productPrice * tax;
+    }
+    const getTop = () => {
+      return ["이재용", 2, 3, 4, "임지수"];
+    };
+
+    //4. Function()
+    //new Function("","",""....) => 마지막 문자열이 코드 앞에는 매개변수 
+    // 숫자 2개, 연산자를 입력 받아 연산을 실행하는 함수(calculator)를 작성해보자.
+    const calculator2 = new Function("n1", "n2", "return n1+n2");
+    console.log("calculator2 : ", calculator2(3, 4));
+
+    let n1 = 9;
+    let n2 = 63;
+    let op = "+";   //+, -, *, /, %
+
+
+    // const sum4 = (op) =>
+    let sum4 = n1 + n2;
+    switch (sum4) {
+      case 1:
+        console.log(n1 + n2);
+      case 2:
+        console.log(n1 - n2);
+      case 3: n1 * n2;
+        console.log(sum4);
+      case 4: n1 / n2;
+        console.log(sum4);
+      case 5: n1 % n2;
+        console.log(sum4);
+    }
+
+    function calculator(n1, n2, op) {
+      if (op === "+") {
+        return n1 + n2;
+      }
+      else if (op === "-") {
+        return n1 - n2;
+      }
+      else if (op === "*") {
+        return n1 * n2;
+      }
+      else if (op === "/") {
+        return n1 / n2;
+      }
+      else if (op === "%") {
+        return n1 % n2;
+      }
+      else {
+        console.log("연산자가 아닙니다.");
+      }
+    }
+    console.log(calculator(n1, n2, op));
+
+    /* 생성자 함수
+    Student s1 = new Student();
+    Student                   s1    =              new           Student ();
+    클래스 이름 / 인스터스 객체(변수명)referce / 새로운 메모리를 할당 / 생성자 함수 
+    
+    Function() 생성자 함수 String() 생성자 함수*/
+
+    op = "/";
+    const calculator3 = new Function("n1", "n2", "return n1" + op + "n2");
+    console.log("calculator3 : ", calculator3(9, 10));
+
   </script>
 </body>
 
