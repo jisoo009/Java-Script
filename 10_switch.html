@@ -12,9 +12,9 @@
         - */
       //Date() 객체를 통해서 now라는 인스턴스 객체 생성
       const now = new Date();
-      // console.log(now);
+       console.log(now);
       let dayName = now.getDay(); //getDay는 요일을 가져오는데 숫자로 가져온다. 0:일요일
-      // console.log(d);
+     console.log(dayName);
       // switch (dayName) {
       //   case 0: {
       //     dayName = "일요일";
@@ -53,7 +53,7 @@
       // }
       //console.log(dayName);
       let day = ["일", "월", "화", "수", "목", "금", "토"];
-      console.log(day[new Date().getDay()]);
+      console.log(day[new Date().getDay()]+"요일");
     </script>
   </body>
 </html>
