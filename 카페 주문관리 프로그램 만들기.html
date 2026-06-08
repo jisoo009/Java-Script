@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <h1>미림 카페 주문 관리</h1>
+  <section>
+    <h2>메뉴 선택</h2>
+    <label for="menuSelect">메뉴</label>
+    <select id="menuSelect"></select>
+    <label for="quantityInput">수량</label>
+    <input type="number" id="quantityInput" value="1" min="1" />
+    <button onclick="addOrder()">주문 추가</button>
+  </section>
+  <section>
+    <h2>메뉴 검색</h2>
+    <input type="text" id="searchInput" placeholder="메뉴명을 입력하세요" />
+
+    <button onclick="searchMenu()">검색</button>
+    <div id="searchResult">검색 결과가 여기에 표시됩니다. </div>
+  </section>
+  <section>
+    <h2>주문 내역</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>주문번호</th>
+          <th>메뉴명</th>
+          <th>단가</th>
+          <th>수량</th>
+          <th>금액</th>
+        </tr>
+      </thead>
+      <tbody id="orderTableBody">
+        <tr>
+          <td colspan="5">주문 내역이 없습니다. </td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+  <section>
+    <h2>결제 정보</h2>
+    <div id="totalQuantity">총 주문 수량: 0개</div>
+    <div id="totalPrice">총 결제 금액: 0원</div>
+  </section>
+  <script>
+    const menuList = [
+      { name: "아메리카노", price: 3000, category: "coffee" },
+      { name: "카페라떼", price: 4000, category: "coffee" },
+
+      { name: "바닐라라떼", price: 4500, category: "coffee" },
+      { name: "초코라떼", price: 4200, category: "nonCoffee" },
+      { name: "레몬에이드", price: 5000, category: "ade" },
+      { name: "자몽에이드", price: 5200, category: "ade" },
+    ];
+    const orderList = [];
+
+    const loadMenu = () => {
+      let optionList = [];
+
+      for (let i = 0; i < menuList.length; i++) {
+        optionList.push(
+          `<option value="${i}">
+        ${menuList[i].name} (${menuList[i].price}원)
+      </option>`
+        );
+      }
+      document.getElementById("menuSelect").innerHTML =
+        optionList.join("");
+    };
+    const addOrder = () => {
+
+      const menuIndex =
+        document.getElementById("menuSelect").value;
+
+      const quantity = Number(
+        document.getElementById("quantityInput").value
+      );
+
+      if (quantity < 1 || isNaN(quantity)) {
+        alert("수량은 1개 이상 입력해주세요.");
+        return;
+      }
+
+      const selectedMenu = menuList[menuIndex];
+
+      const orderNo =
+        "ORDER-" + String(orderList.length + 1).padStart(3, "0");
+
+      const order = {
+        orderNo: orderNo,
+        name: selectedMenu.name,
+        price: selectedMenu.price,
+        quantity: quantity,
+        total: selectedMenu.price * quantity,
+      };
+
+      orderList.push(order);
+
+      renderOrderTable();
+      updateTotalInfo();
+    };
+    const renderOrderTable = () => {
+      const tbody = document.getElementById("orderTableBody");
+
+      if (orderList.length === 0) {
+        tbody.innerHTML =
+          `<tr>
+        <td colspan="5">주문 내역이 없습니다.</td>
+      </tr>`;
+        return;
+      }
+
+      let rows = [];
+
+      for (let i = 0; i < orderList.length; i++) {
+        rows.push(`
+      <tr>
+        <td>${orderList[i].orderNo}</td>
+        <td>${orderList[i].name}</td>
+        <td>${orderList[i].price}</td>
+        <td>${orderList[i].quantity}</td>
+        <td>${orderList[i].total}</td>
+      </tr>
+    `);
+      }
+
+      tbody.innerHTML = rows.join("");
+    };
+    const updateTotalInfo = () => {
+
+    }
+    const searchMenu = () => {
+
+    }
+    loadMenu();
+  </script>
+</body>
+
+</html>

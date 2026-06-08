@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>미림 카페 주문 관리</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            width: 600px;
+        }
+
+        th, td{
+            border: 1px solid black;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th{
+            background-color: aquamarine;
+        }
+
+        button{
+            background-color: blue;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+<h1>미림 카페 주문 관리</h1>
+
+<section>
+    <h2>메뉴 선택</h2>
+
+    <label>메뉴</label>
+    <select id="menuSelect"></select>
+
+    <label>수량</label>
+    <input type="number" id="quantity" value="1" min="1">
+
+    <button id="orderBtn">주문 추가</button>
+</section>
+
+<section>
+    <h2>메뉴 검색</h2>
+
+    <input type="text" id="searchInput" placeholder="메뉴명을 입력하세요">
+    <button id="searchBtn">검색</button>
+
+    <div id="searchResult">
+        검색 결과가 여기에 표시됩니다.
+    </div>
+</section>
+
+<section>
+    <h2>주문 내역</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>주문번호</th>
+                <th>메뉴명</th>
+                <th>단가</th>
+                <th>수량</th>
+                <th>금액</th>
+            </tr>
+        </thead>
+
+        <tbody id="orderList">
+            <tr>
+                <td colspan="5">주문 내역이 없습니다.</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<section>
+    <h2>결제 정보</h2>
+
+    <div>총 주문 수량: <span id="totalCount">0</span>개</div>
+    <div>총 결제 금액: <span id="totalPrice">0</span>원</div>
+</section>
+
+<script>
+const menuList = [
+    { name: "아메리카노", price: 3000, category: "coffee" },
+    { name: "카페라떼", price: 4000, category: "coffee" },
+    { name: "바닐라라떼", price: 4500, category: "coffee" },
+    { name: "초코라떼", price: 4200, category: "nonCoffee" },
+    { name: "레몬에이드", price: 5000, category: "ade" },
+    { name: "자몽에이드", price: 5200, category: "ade" }
+];
+
+const menuSelect = document.getElementById("menuSelect");
+
+/* 기능1 : 메뉴 목록을 select로 출력 */
+function loadMenu() {
+
+    menuSelect.innerHTML = "";
+
+    menuList.forEach(menu => {
+        menuSelect.innerHTML += `
+            <option value="${menu.name}">
+                ${menu.name} : ${menu.price}원
+            </option>
+        `;
+    });
+
+}
+
+loadMenu();
+
+let orderNo = 1;
+let totalCount = 0;
+let totalPrice = 0;
+
+document.getElementById("orderBtn").addEventListener("click", () => {
+
+    const menuName = menuSelect.value;
+    const quantity = Number(document.getElementById("quantity").value);
+
+    const menu = menuList.find(item => item.name === menuName);
+
+    const amount = menu.price * quantity;
+
+    const tbody = document.getElementById("orderList");
+
+    if(orderNo === 1){
+        tbody.innerHTML = "";
+    }
+
+    tbody.innerHTML += `
+        <tr>
+            <td>${orderNo}</td>
+            <td>${menu.name}</td>
+            <td>${menu.price}</td>
+            <td>${quantity}</td>
+            <td>${amount}</td>
+        </tr>
+    `;
+
+    totalCount += quantity;
+    totalPrice += amount;
+
+    document.getElementById("totalCount").textContent = totalCount;
+    document.getElementById("totalPrice").textContent = totalPrice;
+
+    orderNo++;
+});
+
+document.getElementById("searchBtn").addEventListener("click", () => {
+
+    const keyword = document.getElementById("searchInput").value;
+
+    const result = menuList.filter(menu =>
+        menu.name.includes(keyword)
+    );
+
+    if(result.length > 0){
+        document.getElementById("searchResult").textContent =
+            result.map(menu => menu.name).join(", ");
+    }else{
+        document.getElementById("searchResult").textContent =
+            "검색 결과가 없습니다.";
+    }
+});
+</script>
+
+</body>
+</html>

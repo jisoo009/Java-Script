@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <label for="n1">숫자1: </label>
+    <input type="number" id="n1" /><br />
+    <label for="n2">숫자2: </label>
+    <input type="number" id="n2" />
+    <button onclick="doSum()">계산</button>
+    <p>결과 : <span id="result"></span></p>
+    <!--id : 자바스크립트에서 제어하기 위해 부여-->
+    <script>
+        //Number 객체 내장 함수
+        let num = 67978;
+        console.log(num); //숫자
+
+        //1. toString() : 숫자를 문자열로
+        let strNum = num.toString();
+        console.log(strNum); //문자열
+
+        //2. parseInt() : 문자열을 정수로, 전역 함수, 주인 window(전역객체)
+        console.log(parseInt(strNum)); //숫자
+
+        //3. parseFloat() : 문자열을 실수로, 전역 함수, 주인 window(전역객체)
+        let f = "1.23456"; //문자열
+        console.log(f);
+        console.log(parseFloat(f)); //실수형
+
+        //4. toExponential() : 지수표기법
+        let x = 100.3456;
+        console.log(x.toExponential()); //1.003456e+2
+
+        //5. toFixed() : 소수점 몇자리까지 보여줄지 결정하는 함수
+        console.log(x.toFixed(0)); //100
+        console.log(x.toFixed(1)); //100.3
+        console.log(x.toFixed(2)); //100.35
+        console.log(x.toFixed(3)); //100.346
+
+        console.log("---------------------------------------------");
+
+        //6. toPrecision() : 정수와 소수부분을 합쳐서 몇자리 보여줄지 결정하는 함수
+        //console.log(x.toPrecision(0)); //100
+        console.log(x.toPrecision(1)); //1e+2
+        console.log(x.toPrecision(2)); //1.0e+2
+        console.log(x.toPrecision(3)); //100
+        console.log(x.toPrecision(4)); //100.3
+        console.log(x.toPrecision(5)); //100.35
+
+
+        const doSum = () => {
+            //1. 두 수를 읽어온다.           2. 읽어온 값이 숫자인지 체크를 한다. 숫자가 아닐 시 숫자로 변환
+            let number1 = parseInt(document.getElementById("n1").value);
+            let number2 = parseInt(document.getElementById("n2").value);
+
+            console.log(number1);
+            console.log(number2);
+
+            //3. 두 수를 더한다.
+            let sum = number1 + number2;
+
+            //4. 화면에 띄운다.
+            document.getElementById("result").innerHTML = sum;
+
+        }
+
+    </script>
+</body>
+
+</html>

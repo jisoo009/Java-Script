@@ -16,7 +16,10 @@
         console.log(str.length);    // 0~12
 
         //2. indexof(대상, 시작위치) : 찾고자 하는 문자열의 시작 인덱스 리턴 (여러개라면 첫 문자열)
+
         //찾고자 하는 대상이 없으면 리턴은 -1
+        //찾고자 하는 대상이 없으면 리턴은 -1 
+
         console.log(str.indexOf("Seoul"));
         str = "Welcome Seoul Seoul";
         console.log(str.indexOf("Seoul", 9)); // 첫 번재 서울보다 큰 위치만 주면 된다.
@@ -64,10 +67,16 @@
         console.log(date);
         // slice vs substring vs substr
         /*  slice : 가장 유연하고 현대적인 메서드, 음수처리 가능 (slice를 많이 사용하는 것을 권장)
+
         /*  slice : 가장 유연하고 현대적인 메서드, 음수처리 가능
             substring : slice와 유연하지만 인덱스가 음인 경우 처리가 다르다.
             substr : 인덱스가 아닌 글자 수를 기준으로 하지만 현재 웹표준으로 권장하지 않는다.
         */
+       /*
+            substring : slice와 유연하지만 인덱스가 음인 경우 처리가 다르다.
+            substr : 인덱스가 아닌 글자 수를 기준으로 하지만 현재 웹표준으로 권장하지 않는다.
+        */
+
         //7. replace(str1, str2) : str1 을 str2로 교체하는 함수 
 
         str = "Welcome Jeju! Jeju";
