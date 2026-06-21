@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*
+        [조건] 1. 자바스크립트 내장 Date 객체를 생성하여 
+        현재 날짜와 시간 인스턴스 정보가 담긴 상수 today를 정의하시오.
+
+        2. today 객체로부터 요일 정보를 숫자 형태(0:일요일 ~ 6:토요일)로 
+        가져와 변수 dayNumber에 저장하는 메서드를 호출하시오.
+        
+        3. 한국어 요일 문자열 배열인 weekDays가 주어졌을 때, 
+        dayNumber를 배열의 인덱스로 활용(대괄호 표기법)하여 
+        오늘에 해당하는 요일 한 글자를 콘솔에 출력하시오.
+*/
+        const weekDays = ["일", "월", "화", "수", "목", "금", "토"];
+
+        // 1. Date 인스턴스 생성
+        const today = new Date();
+
+        // 2. 요일 숫자(0:일 ~ 6:토) 가져오기
+        let dayNumber = today.getDay();
+
+        // 3. 배열 인덱스를 활용해 한 글자 요일 출력
+        console.log(weekDays[dayNumber]);
+    </script>
+</body>
+
+</html>

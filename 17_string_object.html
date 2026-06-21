@@ -18,7 +18,6 @@
         //2. indexof(대상, 시작위치) : 찾고자 하는 문자열의 시작 인덱스 리턴 (여러개라면 첫 문자열)
 
         //찾고자 하는 대상이 없으면 리턴은 -1
-        //찾고자 하는 대상이 없으면 리턴은 -1 
 
         console.log(str.indexOf("Seoul"));
         str = "Welcome Seoul Seoul";
@@ -72,7 +71,7 @@
             substring : slice와 유연하지만 인덱스가 음인 경우 처리가 다르다.
             substr : 인덱스가 아닌 글자 수를 기준으로 하지만 현재 웹표준으로 권장하지 않는다.
         */
-       /*
+    /*
             substring : slice와 유연하지만 인덱스가 음인 경우 처리가 다르다.
             substr : 인덱스가 아닌 글자 수를 기준으로 하지만 현재 웹표준으로 권장하지 않는다.
         */
@@ -97,8 +96,8 @@
         //(프론트엔드) 입력된 내용을 대(소)문자로 변환하면 된다. 예) db제품번호 대문자로
 
         str = "Welcome Jeju! Jeju";
-        console.log(str.toUpperCase);
-        console.log(str.toLowerCase);
+        console.log(str.toUpperCase());
+        console.log(str.toLowerCase());
 
         //10. concat() : 여러 문자열을 합치지, 합칠 문자열의 갯수에는 제한이 없다.
         let firstName = "John";
@@ -113,7 +112,7 @@
         console.log(name.trim());
 
         //12. *****매우 중요!! padStart(문자열 전체 길이, 채울 문자열) : 현업에서 가장 만힝 사용하는 함수 중 하나
-        // 득정 문자로 앞을 채운다.
+        // 특정 문자로 앞을 채운다.
         //월을 입력받아, 워링 한자리 인 경우  "0"을 붙여서 출력 (포맷을 맞추기 위해);
 
         // month = prompt("월을 입력하세요.");

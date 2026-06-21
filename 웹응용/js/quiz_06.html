@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /*[조건] 1. 화면의 금액 충전 입력창에서 가져온 값(inputMoney)은 
+        현재 앞뒤 공백이 포함된 문자열 "  1200  " 상태입니다. 
+        이 문자열의 앞뒤 공백을 깔끔하게 제거하여 변수 trimmedMoney에 담으시오.
+        2. 공백이 제거된 문자열 trimmedMoney 앞에 단항 더하기 연산자(+)를 붙여 
+        확실하게 숫자형(Number) 데이터로 명시적 변환을 가한 뒤 변수 chargeAmount에 저장하시오.
+        3. 변환된 충전 금액(chargeAmount)이 대중교통 최소 충전 금액인 1000원 미만인지 비교하는 조건문을 만들어, 
+        충전이 불가능하다면alert("1000원 이상부터 충전 가능합니다.");를 띄우는 조건문 스크립트를 완벽히 완성하시오.
+        */
+        let inputMoney = "  1200  ";
+
+        // 1. 문자열 앞뒤 공백 제거
+        let trimmedMoney = inputMoney.trim();
+
+        // 2. 단항 연산자를 사용한 안전한 숫자 변환
+        let chargeAmount = +trimmedMoney;
+
+        // 3. 충전 최소 금액 비교 조건문 처리
+        if (chargeAmount < 1000) {
+            alert("1000원 이상부터 충전 가능합니다.");
+        }
+    </script>
+</body>
+
+</html>
