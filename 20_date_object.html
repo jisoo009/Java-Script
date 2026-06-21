@@ -8,8 +8,49 @@
 </head>
 
 <body>
-    <script>
+    <input type="date" name="" id="startDate" />~
+    <input type="date" name="" id="endDate" />~
 
+    <script>
+        //1. 객체 생성하기
+        let now = new Date();   //요일 달 일 년도 시 분 초 순서로 생성
+        console.log(now);   //Mon Jun 15 2026 11:10:21 GMT+0900 (한국 표준시)
+
+        //2. 년, 월(0~), 일, 시간, 분, 초, 밀리초로 만들기
+        let d = new Date(2026, 4, 5, 13, 10, 0);
+        console.log(d); //Tue May 05 2026 13:10:00 GMT+0900 (한국 표준시)
+
+        //3. get() 내장함수
+        let year = now.getFullYear();//년도
+        let month = now.getMonth(); //+1
+        let day = now.getDay();//요일 [0,1,2,3,4.....] 10_switch.html
+        let date = now.getDate();//일
+        let hour = now.getHours();//13...
+        let minute = now.getMinutes();
+        let second = now.getMilliseconds();
+        console.log(year, month, day, date, hour, minute, second);
+        //2026 5 1 15 11 34 911
+
+        //4. set() 내장함수
+        //5. 오늘 날짜 (형식 : YYYY-MM-DD) 구하기 => endDate의 뿌리기
+        let today = year + "-" + (month + 1).toString().padStart(2, 0) + "-" + date.toString().padStart(2, 0);
+        document.getElementById("endDate").value = today;
+        console.log(today);
+
+
+        //6. 일주인 전 startDate에 뿌려보자. 이런 코드는 사용하지 않는다.
+        // let beforeSevendays = new Date(year, month, date - 7);
+        // console.log(beforeSevendays);
+
+        //6. 기준시 지원 : 1970/01/01/00:00:00 언제부터 언제까지를 구할 때 사용
+        let d2 = new Date(0);
+        console.log(d2);    //Thu Jan 01 1970 09:00:00 GMT+0900 (한국 표준시)
+
+        let d3 = new Date(24 * 60 * 60 * 1000);
+        console.log(d3);    //Fri Jan 02 1970 09:00:00 GMT+0900 (한국 표준시)
+
+        let current = now.getTime();
+        console.log(current);   //1781492798561
     </script>
 </body>
 
